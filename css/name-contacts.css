@@ -1,0 +1,25 @@
+.myname{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 60px;
+}
+
+.email-icon-inline{
+    display: inline;
+}
+
+#icon-width{
+    width: 10px;
+}
+
+.email-padding{
+    padding-left: 3px;
+}
+
+.address-max-content{
+    width: max-content;
+}
+
+.email-addr-center{
+    align-items: center;
+}

@@ -1,0 +1,51 @@
+:root{
+    --height-cv: 297mm;
+    --height-avatar: 250px;
+}
+.my-boder-size{
+    height: var(--height-cv);
+    width: 210mm;
+    box-shadow: 0px 0px 20px 1px black;
+}
+
+.row-first{
+    display: flex;
+    height: 250px;
+}
+
+@media screen and (max-width: 768px){
+    .row-first{
+        display: inline;
+    }
+    .name-contacts{
+        text-align: center;
+    }
+    .myname{
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .email-addr-center{
+        justify-content: center;
+    }
+}
+
+h6{
+    background-color: #f89f5b;
+}
+
+h4{
+    color: #0f8fa8;
+}
+
+.student-color{
+    color: #1da5c0;
+}
+
+.submyradius{
+    background: white;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    color: #0f8fa8;
+}
+
+

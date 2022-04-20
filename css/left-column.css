@@ -1,0 +1,36 @@
+:root{
+    --h6-left-padding: 6px;
+}
+
+.left-h6{
+    flex-direction: row;
+    justify-content: center;
+}
+
+.h6-left{
+    text-align: center;
+    width: 230px;
+    padding: var(--h6-left-padding);
+    border-radius: 10px;
+    align-items: center;
+    margin: auto;
+}
+
+.left-div-margin{
+    margin-bottom: 40px;
+}
+
+.left-h6-first{
+    margin-top: 10px;
+}
+
+.left-padding{
+    padding: 15px;
+}
+
+.left-background{
+    background-color: #0f8fa8;
+    height: calc(297mm - 250px);
+    border-radius: -30px;
+    padding: 0%;
+}
