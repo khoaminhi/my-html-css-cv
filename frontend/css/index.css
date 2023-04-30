@@ -1,0 +1,8 @@
+.text-3dots {
+    display: inline-block;
+    width: 100%;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
