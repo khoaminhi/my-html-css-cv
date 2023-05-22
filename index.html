@@ -36,7 +36,7 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/index.html">CV</a>
+                            <a class="nav-link active href" aria-current="page" href="/index.html">CV</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/cv-pdf/Resume-Khoa-MinHi-Dev.docx">CV Template</a>
@@ -47,12 +47,12 @@
                                 Documents
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/frontend/">Frontend</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item href" href="/frontend/">Frontend</a></li>
+                                <li><a class="dropdown-item href" href="#">Another action</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item href" href="/tips">Tips</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -206,6 +206,18 @@
     <!-- Bootstrap -->
     <!-- Kit code font awesome -->
     <script src="https://kit.fontawesome.com/fc8db74b68.js" crossorigin="anonymous"></script>
+    <script>
+        (function () {
+            document.querySelectorAll('a.href').forEach((aHref) => {
+                const githubRepo = '/my-html-css-cv/';
+                const customHref = githubRepo + aHref.href.split(aHref.baseURI).join('')
+
+                // aHref.href = 
+                aHref.href = customHref;
+                console.log('href: ', aHref)
+            })
+        })()
+    </script>
 </body>
 
 </html>

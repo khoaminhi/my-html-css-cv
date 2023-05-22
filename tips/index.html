@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World, Welcom to you</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/css.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Menu -->
+        <nav class="navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active href" aria-current="page" href="/">CV</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/cv-pdf/Resume-Khoa-MinHi-Dev.docx">CV Template</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Documents
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item href" href="/frontend">Frontend</a></li>
+                                    <li><a class="dropdown-item href" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item href" href="/tips">Tips</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- End Menu -->
+        <h1>git, commit, git cherry-pick -n, git commit --amend --no-edit</h1>
+        <p>
+            Khi làm việc với team, những lúc khách hàng yêu cầu cần release gấp 1 feature. Mà feature này đã được làm
+            đầu tuần, cuối tuần
+            khách hàng mới báo. Khi đó commit của bạn ở giữa commit của team.
+        </p>
+
+        <p>
+            Cách thủ công nhất là bạn phải đi copy từng dòng code mà mình đã code trước đó ở đầu tuần. Với sớ lượng code
+            ít hoặc bạn nhớ
+            mình code chỗ nào thì oki; còn không nhớ hoặc commit code nhiều lần, xen kẽ code thành viện khác trong team
+            thì oh my god con lạy chúa. Lúc đó rất dễ sót code.
+        </p>
+
+        <p>
+            Cách thứ 2 là dùng git, đặc biệt là git cherry-pick. Nó giúp bạn lấy từng commit (dựa vào hash id) để apply
+            vào nhánh bạn đang đứng.
+
+        </p>
+        <p>
+            *Node: để làm tốt việc mình đã có commit nào liên quan tới task jira <span class="text-highlight">(reference jira link)</span> thì bạn phải có thói quên commit với
+            comment để search
+
+        </p>
+        <div class="codebox">
+            <code>
+                <span>
+                    <span class="codetext">
+                        git switch branch_name
+                    </span> # chọn nhánh cần apply commit vào (nhánh master)
+                </span><br>
+                <span>
+                    <span class="codetext">
+                        git status
+                    </span> # kiểm tra
+                </span><br>
+    
+    
+                <span>
+                    <span class="codetext">
+                        git branch feat_temp
+                    </span> # tạo một nhánh tạm thời, không nên apply commit thẳng vào nhánh master
+                </span><br>
+                <span>
+                    <span class="codetext">
+                        git checkout feat_temp
+                    </span> # bắt đầu thực hiện trên nhánh này
+                </span><br>
+    
+                <page>
+                    <span class="codetext">
+                        git cherry-pick -n hashid_oldest1
+                    </span> # -n là option để không commit, tức là nó sẽ apply code và code ở trạng thái stage 
+                (thường là màu xanh, sau working tree). Dùng option này để khi cherry-pick có thể bị conflict code. Và chúng ta vẫn append được vào
+                1 commit duy nhất bằng lệnh git commit -amend --no-edit.
+                </page><br>
+    
+                => nếu có conflict thì giải quyết conflict và chạy git add . (hoặc git add file_path). Sau đó commit lại (git commit -m "comment").<br>
+    
+                <span class="codetext">
+                    git cherry-pick -n hashid_oldest2
+                </span> # commit cũ thứ 2<br>
+                <span class="codetext">
+                    git commit -amend --no-edit
+                </span><br>
+    
+                <span class="codetext">
+                    git cherry-pick -n hashid_oldest3<br>
+                    git commit -amend --no-edit<br>
+                    ...<br>
+                </span>
+                
+    
+                <span class="codetext">
+                    => push branch mới này lên origin (gitlab.com, github.com,...) git push --set-upstream origin khoa<br>
+                merge nhánh này vào master<br>
+                </span>
+                merge nhánh này vào nhánh chung khác của team (dev, test,...)<br>
+            </code>
+        </div>
+    </div>
+    <script>
+        (function () {
+            if (document.location.hostname == '127.0.0.1' || document.location.hostname == 'localhost') return;
+            document.querySelectorAll('a.href').forEach((aHref) => {
+                const githubRepo = '/my-html-css-cv/';
+                const customHref = githubRepo + aHref.href.split(aHref.baseURI).join('')
+
+                // aHref.href = 
+                aHref.href = customHref;
+                console.log('href: ', aHref)
+            })
+        })()
+    </script>
+</body>
+
+</html>
