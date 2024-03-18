@@ -6,3 +6,83 @@
     white-space: nowrap;
     overflow: hidden;
 }
+
+.k-pad {
+    padding: 10px;
+}
+.k-white {
+    color: white;
+}
+
+.k-iwhite {
+    font-style: italic;
+    color: white;
+}
+.glowing_affect {
+    padding: 16px 40px;
+    font-style: italic;
+    background-color: #3a66ff;
+    will-change: opacity,color;
+    transition: opacity .2s ease,color .2s ease;
+    color: #fff!important;
+    border-radius: 80px;
+    background: linear-gradient(90deg,#3f82ff,#ff5149,#3f82ff);
+    background-size: 1300%;
+    -webkit-animation: anim_glowing 30s linear infinite;
+    animation: anim_glowing 30s linear infinite;
+    box-sizing: border-box;
+    min-width: 290px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.glowing_affect1 {
+    background: linear-gradient(90deg,#3f82ff,#ff5149,#3f82ff);
+    background-size: 1300%;
+    -webkit-animation: anim_glowing 30s linear infinite;
+    animation: anim_glowing 30s linear infinite;
+
+    border: none;
+    border-radius: 3px;
+    width: 290px;
+    height: 45px;
+    color: #fff;
+    font-style: italic;
+    font-size: 16px;
+}
+
+@-webkit-keyframes anim_glowing {
+    0% {
+        background-position: 0 50%
+    }
+
+    to {
+        background-position: 1300% 50%
+    }
+}
+
+@keyframes anim_glowing {
+    0% {
+        background-position: 0 50%
+    }
+
+    to {
+        background-position: 1300% 50%
+    }
+}
+
+.dark {
+    background-color: #111111;
+    padding: 5px;
+}
+
+.k-hcenter {
+    display: flex;
+    justify-content: space-around;
+}
+
+.k-padtb20 {
+    padding: 20px 0px 20px 0px;
+}
