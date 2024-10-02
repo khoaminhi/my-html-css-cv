@@ -72,3 +72,7 @@ h4{
     background: black;
     border-radius: 6px;
 }
+
+.onlick {
+    cursor: pointer;
+}
